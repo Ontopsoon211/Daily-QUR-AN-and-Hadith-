@@ -1,0 +1,25 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #081420;
+  color: white;
+}
+
+.container {
+  padding: 30px;
+  max-width: 700px;
+  margin: auto;
+}
+
+.card {
+  margin-top: 20px;
+  padding: 20px;
+  border-radius: 12px;
+  background: #13263a;
+  border: 1px solid #1f3a52;
+}
+
+h1,
+h2 {
+  margin-top: 0;
+}
