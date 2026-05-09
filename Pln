@@ -1,0 +1,29 @@
+Islamic-link-bio/
+├── public/
+├── src/
+│   ├── data/
+│   │   └── dailyContent.js
+│   ├── utils/
+│   │   └── dailyEngine.js
+│   ├── App.jsx
+│   ├── main.jsx
+│   └── index.css
+│
+├── backend/
+│   ├── config/
+│   │   ├── firebase.js
+│   │   └── serviceAccount.json   <-- from Firebase
+│   │
+│   ├── controllers/
+│   │   └── contentController.js
+│   │
+│   ├── routes/
+│   │   └── contentRoutes.js
+│   │
+│   ├── .env
+│   ├── package.json
+│   └── server.js
+│
+├── package.json
+├── vite.config.js
+└── .gitignore
