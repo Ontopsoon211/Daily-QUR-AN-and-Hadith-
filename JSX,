@@ -1,0 +1,32 @@
+import { verses, hadiths } from "./data/dailyContent"
+import { getDailyIndex } from "./utils/dailyEngine"
+
+export default function App() {
+  const verseIndex = getDailyIndex(verses.length)
+  const hadithIndex = getDailyIndex(hadiths.length)
+
+  const verse = verses[verseIndex]
+  const hadith = hadiths[hadithIndex]
+
+  return (
+    <div style={{ padding: "20px", fontFamily: "sans-serif" }}>
+      
+      <h1>Daily Qur’an & Hadith</h1>
+
+      {/* VERSE CARD */}
+      <div className="card">
+        <h3>Verse of the Day</h3>
+        <p>{verse.text}</p>
+        <small>{verse.reference}</small>
+      </div>
+
+      {/* HADITH CARD */}
+      <div className="card">
+        <h3>Hadith of the Day</h3>
+        <p>{hadith.text}</p>
+        <small>{hadith.reference}</small>
+      </div>
+
+    </div>
+  )
+}
