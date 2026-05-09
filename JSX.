@@ -1,0 +1,8 @@
+export default function App() {
+  return (
+    <div style={{ padding: "20px", fontFamily: "sans-serif" }}>
+      <h1>Islamic Link Bio</h1>
+      <p>Your system is running successfully 🚀</p>
+    </div>
+  )
+}
