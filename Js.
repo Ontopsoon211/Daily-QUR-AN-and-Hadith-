@@ -1,0 +1,5 @@
+export function getDailyContent(type, offset = 0) {
+  const list = contentTypes[type]
+  const index = getDailyIndex(list.length, offset)
+  return list[index]
+}
