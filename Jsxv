@@ -1,0 +1,34 @@
+import { useEffect, useState } from "react"
+
+export default function App() {
+  const [content, setContent] = useState(null)
+
+  useEffect(() => {
+    fetch("/api/content/daily")
+      .then(res => res.json())
+      .then(data => setContent(data.data))
+      .catch(console.error)
+  }, [])
+
+  if (!content) {
+    return <h2>Loading...</h2>
+  }
+
+  return (
+    <div className="container">
+      <h1>Daily Qur’an & Hadith</h1>
+
+      <div className="card">
+        <h2>Verse of the Day</h2>
+        <p>{content.verse.text}</p>
+        <small>{content.verse.reference}</small>
+      </div>
+
+      <div className="card">
+        <h2>Hadith of the Day</h2>
+        <p>{content.hadith.text}</p>
+        <small>{content.hadith.reference}</small>
+      </div>
+    </div>
+  )
+}
