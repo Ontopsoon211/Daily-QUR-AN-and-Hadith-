@@ -1,0 +1,6 @@
+export const contentTypes = {
+  verse: verses,
+  hadith: hadiths,
+  dua: duas,
+  reminder: reminders
+}
