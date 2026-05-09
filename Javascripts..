@@ -1,0 +1,29 @@
+export const verses = [
+  {
+    text: "Allah does not burden a soul beyond that it can bear.",
+    reference: "Al-Baqarah 2:286"
+  },
+  {
+    text: "Indeed, with hardship comes ease.",
+    reference: "Ash-Sharh 94:6"
+  },
+  {
+    text: "So remember Me; I will remember you.",
+    reference: "Al-Baqarah 2:152"
+  }
+]
+
+export const hadiths = [
+  {
+    text: "The best of you are those who learn the Qur’an and teach it.",
+    reference: "Sahih al-Bukhari 5027"
+  },
+  {
+    text: "Actions are judged by intentions.",
+    reference: "Sahih al-Bukhari 1"
+  },
+  {
+    text: "None of you truly believes until he loves for his brother what he loves for himself.",
+    reference: "Sahih Muslim 45"
+  }
+]
