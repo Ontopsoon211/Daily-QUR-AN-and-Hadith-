@@ -1,0 +1,48 @@
+name: Build & Release APK
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Install EAS CLI
+        run: npm install -g eas-cli
+
+      - name: Authenticate Expo
+        run: eas login --token ${{ secrets.EXPO_TOKEN }}
+
+      - name: Build Android APK
+        run: eas build -p android --profile preview --non-interactive
+
+      - name: Fetch latest build URL
+        run: |
+          eas build:list --platform android --limit 1 --json > build.json
+          echo "BUILD_URL=$(cat build.json | jq -r '.[0].artifacts.buildUrl')" >> $GITHUB_ENV
+
+      - name: Download APK
+        run: curl -L $BUILD_URL -o app.apk
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: v${{ github.run_number }}
+          name: Release ${{ github.run_number }}
+          files: app.apk
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
